@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Onboarding from "./screens/OnBoarding";
 import Login from "./screens/Login";
-import Sign from "./screens/Sign";
+// import Sign from "./screens/Sign";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +20,7 @@ export default function App() {
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
         <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Sign" component={Sign} />
+        {/* <Stack.Screen name="Sign" component={Sign} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
