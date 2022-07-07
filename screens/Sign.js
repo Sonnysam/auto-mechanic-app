@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function SignUp() {
+export default function Sign() {
   return (
     <View>
       <Text>SignUp</Text>
