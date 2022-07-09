@@ -4,6 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Onboarding from "./screens/OnBoarding";
+import Home from "./screens/Home";
 import Login from "./screens/Login";
 // import Sign from "./screens/Sign";
 
@@ -19,6 +20,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
         {/* <Stack.Screen name="Sign" component={Sign} /> */}
       </Stack.Navigator>
