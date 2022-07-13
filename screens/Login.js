@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, SafeAreaView, TextInput } from 'react-native'
+import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 import * as Google from 'expo-auth-session/providers/google'
 
@@ -23,6 +23,9 @@ export default function Login() {
           autoCapitalize="none"
           autoCorrect={false}
         />
+        <TouchableOpacity>
+          <Text style={styles.btn}>Login</Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -57,5 +60,18 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     fontSize: 16,
     color: "#000",
+  },
+  btn: {
+    width: "100%",
+    height: 50,
+    borderRadius: 15,
+    backgroundColor: "#000",
+    color: "#fff",
+    textAlign: "center",
+    textAlignVertical: "center",
+    marginTop: 15,
+    fontSize: 16,
+    fontWeight: "bold",
+    padding: 10,
   }
 });
