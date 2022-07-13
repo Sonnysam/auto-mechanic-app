@@ -11,15 +11,15 @@ export default function Login() {
       <View style={styles.loginCont}>
         <TextInput
           style={styles.input}
-          placeholder="Email"
-          placeholderTextColor="#9a73ef"
+          placeholder="Name"
+          placeholderTextColor="#000"
           autoCapitalize="none"
           autoCorrect={false}
         />
         <TextInput
           style={styles.input}
           placeholder="Email"
-          placeholderTextColor="#9a73ef"
+          placeholderTextColor="#000"
           autoCapitalize="none"
           autoCorrect={false}
         />
@@ -46,5 +46,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: -50,
+  },
+  input: {
+    width: "100%",
+    height: 50,
+    borderColor: "#000",
+    borderWidth: 1,
+    marginTop: 15,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    fontSize: 16,
+    color: "#000",
   }
 });
