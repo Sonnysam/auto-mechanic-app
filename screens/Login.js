@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
-import * as Google from 'expo-auth-session/providers/google'
+// import * as Google from 'expo-auth-session/providers/google'
 
 export default function Login() {
   return (
@@ -25,6 +25,9 @@ export default function Login() {
         />
         <TouchableOpacity>
           <Text style={styles.btn}>Login</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.btn2}>Sign in with Google</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
-    height: 50,
+    height: 55,
     borderColor: "#000",
     borderWidth: 1,
     marginTop: 15,
@@ -63,15 +66,26 @@ const styles = StyleSheet.create({
   },
   btn: {
     width: "100%",
-    height: 50,
-    borderRadius: 15,
+    height: 55,
+    borderRadius: 12,
     backgroundColor: "#000",
     color: "#fff",
     textAlign: "center",
     textAlignVertical: "center",
     marginTop: 15,
-    fontSize: 16,
-    fontWeight: "bold",
-    padding: 10,
-  }
+    paddingHorizontal: 140,
+    fontSize: 20,
+  },
+  btn2: {
+    width: "100%",
+    height: 55,
+    borderRadius: 12,
+    backgroundColor: "tomato",
+    color: "#fff",
+    textAlign: "center",
+    textAlignVertical: "center",
+    marginTop: 15,
+    paddingHorizontal: 80,
+    fontSize: 20,
+  },
 });

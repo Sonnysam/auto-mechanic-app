@@ -18,28 +18,38 @@ export default function OnBoarding({ navigation }) {
       DoneButtonComponent={Done}
       onDone={() => navigation.navigate("Login")}
       onSkip={() => navigation.navigate("Login")}
-
       pages={[
         {
           backgroundColor: "rgb(247, 228, 158)",
           image: (
             <Image
-              source={require("../assets/images/2.png")}
+              source={require("../assets/images/plum.png")}
               style={{ width: 230, height: 230 }}
             />
           ),
-          title: "Is your car broken down?",
+          title: "Need to fix your broken pipe?",
           subtitle: "Craftman has got you covered",
         },
         {
           backgroundColor: "rgb(175, 223, 255)",
           image: (
             <Image
-              source={require("../assets/images/4.png")}
+              source={require("../assets/images/2.png")}
               style={{ width: 230, height: 230 }}
             />
           ),
-          title: "Wanna change your car tyre?",
+          title: "Is your car broken?",
+          subtitle: "Craftman has got you covered too",
+        },
+        {
+          backgroundColor: "#fff",
+          image: (
+            <Image
+              source={require("../assets/images/carpenter.png")}
+              style={{ width: 230, height: 230 }}
+            />
+          ),
+          title: "Is your house broken?",
           subtitle: "Craftman has got you covered too",
         },
         {
@@ -55,7 +65,7 @@ export default function OnBoarding({ navigation }) {
               }}
             />
           ),
-          title: "Enjoy your fault free ride ",
+          title: "Excellent results you can trust!",
           subtitle: "Don't worry, we'll take care of it",
         },
       ]}
