@@ -1,6 +1,8 @@
-import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { AntDesign } from "@expo/vector-icons";
 // import * as Google from 'expo-auth-session/providers/google'
+
 
 export default function Login() {
   return (
@@ -26,8 +28,14 @@ export default function Login() {
         <TouchableOpacity>
           <Text style={styles.btn}>Login</Text>
         </TouchableOpacity>
+        <View>
+          <Text style={styles.text}>Or</Text>
+        </View>
         <TouchableOpacity>
-          <Text style={styles.btn2}>Sign in with Google</Text>
+          <Text style={styles.btn2}>
+            <AntDesign name="google" size={22} color="white" />
+            {" "} Sign in with Google
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -55,13 +63,15 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "100%",
-    height: 55,
+    height: 40,
     borderColor: "#000",
     borderWidth: 1,
-    marginTop: 15,
+    borderRightWidth: 0,
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    marginTop: 16,
     paddingHorizontal: 10,
-    borderRadius: 10,
-    fontSize: 16,
+    fontSize: 17,
     color: "#000",
   },
   btn: {
@@ -72,9 +82,10 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
     textAlignVertical: "center",
-    marginTop: 15,
+    marginTop: 20,
     paddingHorizontal: 140,
     fontSize: 20,
+
   },
   btn2: {
     width: "100%",
@@ -84,8 +95,12 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
     textAlignVertical: "center",
-    marginTop: 15,
-    paddingHorizontal: 80,
+    marginTop: 0,
+    paddingHorizontal: 65,
     fontSize: 20,
   },
+  text: {
+    fontSize: 16,
+    marginVertical: 10,
+  }
 });
