@@ -28,7 +28,8 @@
     "react-native-onboarding-swiper": "^1.2.0",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.10.1",
-    "react-native-web": "0.17.1"
+    "react-native-web": "0.17.1",
+    "expo-google-app-auth": "~8.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

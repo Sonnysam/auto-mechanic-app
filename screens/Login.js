@@ -5,6 +5,14 @@ import { AntDesign } from "@expo/vector-icons";
 
 
 export default function Login() {
+
+  const handleLogin = () => {
+    const config = {
+      iosClientId: `899505016844-obpul11fuannd8pcq1s7rcs19buc2544.apps.googleusercontent.com`,
+      androidClientId: `899505016844-a28r1uq2m1u5bis5m1sbioegrgtfmbdt.apps.googleusercontent.com`,
+    };
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
@@ -26,15 +34,15 @@ export default function Login() {
           autoCorrect={false}
         />
         <TouchableOpacity>
-          <Text style={styles.btn}>Login</Text>
+          <Text style={styles.btn}>SignUp</Text>
         </TouchableOpacity>
         <View>
           <Text style={styles.text}>Or</Text>
         </View>
         <TouchableOpacity>
           <Text style={styles.btn2}>
-            <AntDesign name="google" size={22} color="white" />
-            {" "} Sign in with Google
+            <AntDesign name="google" size={25} color="white" />
+            {"  "} Continue with Google
           </Text>
         </TouchableOpacity>
       </View>
@@ -81,6 +89,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#000",
     color: "#fff",
     textAlign: "center",
+    justifyContent: "center",
     textAlignVertical: "center",
     marginTop: 20,
     paddingHorizontal: 140,
@@ -97,7 +106,7 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     marginTop: 0,
     paddingHorizontal: 65,
-    fontSize: 20,
+    fontSize: 17,
   },
   text: {
     fontSize: 16,
