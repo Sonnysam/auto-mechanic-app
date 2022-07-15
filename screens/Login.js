@@ -1,16 +1,36 @@
 import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
-import React from 'react';
+import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
-// import * as Google from 'expo-auth-session/providers/google'
+import * as Google from 'expo-google-app-auth';
 
 
-export default function Login() {
+export default function Login({ navigation }) {
+
+  const [gooleSubmitting, setGoogleSubmitting] = useState(false);
 
   const handleLogin = () => {
     const config = {
       iosClientId: `899505016844-obpul11fuannd8pcq1s7rcs19buc2544.apps.googleusercontent.com`,
       androidClientId: `899505016844-a28r1uq2m1u5bis5m1sbioegrgtfmbdt.apps.googleusercontent.com`,
+      scopes: ["profile", "email"]
     };
+    Google.logInAsync(config)
+      .then(result => {
+        const {type, user} = result;
+        if (type == "success") {
+          const {email, name, photoUrl} = user;
+          handleMessage('Google Login Success', 'success');
+          setTimeout(() =>
+            navigation.navigate("Home", { email, name, photoUrl }) 
+          , 1000);
+        }else{
+          handleMessage("Login failed");
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        handleMessage('An error occurred. Please try again.');
+      });
   }
 
   return (
@@ -39,7 +59,7 @@ export default function Login() {
         <View>
           <Text style={styles.text}>Or</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleLogin}>
           <Text style={styles.btn2}>
             <AntDesign name="google" size={25} color="white" />
             {"  "} Continue with Google
