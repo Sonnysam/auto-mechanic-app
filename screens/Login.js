@@ -21,14 +21,13 @@ export default function Login({ navigation }) {
           const {email, name, photoUrl} = user;
           handleMessage('Google Login Success', 'success');
           setTimeout(() =>
-            navigation.navigate("Home", { email, name, photoUrl }) 
-          , 1000);
+            navigation.navigate('Home', { email, name, photoUrl }),1000);
         }else{
           handleMessage("Login failed");
         }
       })
-      .catch(err => {
-        console.log(err);
+      .catch(error => {
+        console.log(error);
         handleMessage('An error occurred. Please try again.');
       });
   }
