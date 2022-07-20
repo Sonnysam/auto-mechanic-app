@@ -55,6 +55,12 @@ export default function Login({ navigation }) {
         <TouchableOpacity>
           <Text style={styles.btn}>SignUp</Text>
         </TouchableOpacity>
+        <View style={styles.account}>
+          <Text style={styles.accountText}>
+            Already have an account? <Text style={styles.accountTextBold}
+              onPress={() => navigation.navigate("Sign")}>Sign In</Text>
+          </Text>
+        </View>
         <View>
           <Text style={styles.text}>Or</Text>
         </View>
