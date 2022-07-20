@@ -8,6 +8,10 @@ export default function Login({ navigation }) {
 
   const [gooleSubmitting, setGoogleSubmitting] = useState(false);
 
+  // STATES FOR LOGIN
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
   const handleLogin = () => {
     const config = {
       iosClientId: `899505016844-obpul11fuannd8pcq1s7rcs19buc2544.apps.googleusercontent.com`,
@@ -44,6 +48,8 @@ export default function Login({ navigation }) {
           placeholderTextColor="#000"
           autoCapitalize="none"
           autoCorrect={false}
+          value={ name }
+          onChangeText={text =>setName(text)}
         />
         <TextInput
           style={styles.input}
@@ -51,14 +57,21 @@ export default function Login({ navigation }) {
           placeholderTextColor="#000"
           autoCapitalize="none"
           autoCorrect={false}
+          value={ email }
+          onChangeText={text => setEmail(text)}
         />
         <TouchableOpacity>
           <Text style={styles.btn}>SignUp</Text>
         </TouchableOpacity>
         <View style={styles.account}>
           <Text style={styles.accountText}>
-            Already have an account? <Text style={styles.accountTextBold}
-              onPress={() => navigation.navigate("Sign")}>Sign In</Text>
+            Already have an account?{" "}
+            <Text
+              style={styles.accountTextBold}
+              onPress={() => navigation.navigate("Sign")}
+            >
+              Sign In
+            </Text>
           </Text>
         </View>
         <View>
@@ -119,7 +132,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingHorizontal: 140,
     fontSize: 20,
-
   },
   btn2: {
     width: "100%",
@@ -136,5 +148,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     marginVertical: 10,
+  },
+  accountTextBold: {
+    fontWeight: "bold",
+    color: "#0782F9",
   }
 });
