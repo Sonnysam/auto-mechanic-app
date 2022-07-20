@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacit
 import React, { useState } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import * as Google from 'expo-google-app-auth';
+import { auth } from '../firebase'
 
 
 export default function Login({ navigation }) {
@@ -9,8 +10,35 @@ export default function Login({ navigation }) {
   const [gooleSubmitting, setGoogleSubmitting] = useState(false);
 
   // STATES FOR LOGIN
-  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] =  useState("");
+
+  useEffect(() =>{
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        navigation.navigate("Home");
+      }
+    }, [])
+
+  const handleSignUp = () => {
+    auth 
+      .createUserWithEmailAndPassword(email, password)
+      .then(userCredentials => {
+      const user = userCredentials.user;
+      console.log('Registered with', user.email);
+      })
+      .catch(error => alert(error.message)); 
+  }
+
+  const handleSignIn = () => {
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Logged in with", user.email);
+      })
+      .catch((error) => alert(error.message)); 
+  }
 
   const handleLogin = () => {
     const config = {
@@ -44,23 +72,22 @@ export default function Login({ navigation }) {
       <View style={styles.loginCont}>
         <TextInput
           style={styles.input}
-          placeholder="Name"
-          placeholderTextColor="#000"
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={ name }
-          onChangeText={text =>setName(text)}
-        />
-        <TextInput
-          style={styles.input}
           placeholder="Email"
           placeholderTextColor="#000"
           autoCapitalize="none"
           autoCorrect={false}
-          value={ email }
-          onChangeText={text => setEmail(text)}
+          value={email}
+          onChangeText={(text) => setEmail(text)}
         />
-        <TouchableOpacity>
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          placeholderTextColor="#000"
+          value={password}
+          secureTextEntry={true}
+          onChangeText={(text) => setPassword(text)}
+        />
+        <TouchableOpacity onPress={handleSignUp}>
           <Text style={styles.btn}>SignUp</Text>
         </TouchableOpacity>
         <View style={styles.account}>
@@ -68,7 +95,8 @@ export default function Login({ navigation }) {
             Already have an account?{" "}
             <Text
               style={styles.accountTextBold}
-              onPress={() => navigation.navigate("Sign")}
+              onPress={handleSignIn}
+              // onPress={() => navigation.navigate("Home")}
             >
               Sign In
             </Text>
