@@ -6,7 +6,7 @@ import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/core';
 
 
-export default function Login({ navigation }) {
+export default function Login() {
 
   const [gooleSubmitting, setGoogleSubmitting] = useState(false);
 
@@ -19,7 +19,7 @@ export default function Login({ navigation }) {
   useEffect(() =>{
      const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.navigate("Home");
+        navigation.replace("Home");
       }
     })
     return unsubscribe
