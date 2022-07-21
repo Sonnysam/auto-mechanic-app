@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import * as Google from 'expo-google-app-auth';
 import { auth } from '../firebase'
+import { useNavigation } from '@react-navigation/core';
 
 
 export default function Login({ navigation }) {
@@ -13,11 +14,16 @@ export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] =  useState("");
 
+  const navigation = useNavigation();
+
   useEffect(() =>{
-    auth.onAuthStateChanged(user => {
+     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
         navigation.navigate("Home");
       }
+    })
+    return unsubscribe
+    // return () => unsubscribe();
     }, [])
 
   const handleSignUp = () => {
@@ -93,13 +99,13 @@ export default function Login({ navigation }) {
         <View style={styles.account}>
           <Text style={styles.accountText}>
             Already have an account?{" "}
-            <Text
-              style={styles.accountTextBold}
-              onPress={handleSignIn}
-              // onPress={() => navigation.navigate("Home")}
-            >
-              Sign In
-            </Text>
+              <Text
+                style={styles.accountTextBold}
+                onPress={handleSignIn}
+                // onPress={() => navigation.navigate("Home")}
+              >
+                Sign In
+              </Text>    
           </Text>
         </View>
         <View>
@@ -175,10 +181,13 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 16,
-    marginVertical: 10,
+    marginVertical: 6,
   },
   accountTextBold: {
     fontWeight: "bold",
     color: "#0782F9",
+    fontSize: 18,
+    marginHorizontal: 5,
+    marginVertical: 10,
   }
 });
