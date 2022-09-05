@@ -4,6 +4,7 @@ import { AntDesign } from "@expo/vector-icons";
 import * as Google from 'expo-google-app-auth';
 import { auth } from '../firebase'
 import { useNavigation } from '@react-navigation/core';
+import tw from "twrnc";
 
 
 export default function Login() {
@@ -73,7 +74,7 @@ export default function Login() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo}>
-        <Image source={require("../assets/images/logo1.png")} />
+        <Image source={require("../assets/images/splash.png")} style={{width: 200, height: 150}} />
       </View>
       <View style={styles.loginCont}>
         <TextInput
@@ -97,7 +98,7 @@ export default function Login() {
           <Text style={styles.btn}>SignUp</Text>
         </TouchableOpacity>
         <View style={styles.account}>
-          <Text style={styles.accountText}>
+          <Text style={[styles.accountText, tw`bg-blue-300`]}>
             Already have an account?{" "}
               <Text
                 style={styles.accountTextBold}

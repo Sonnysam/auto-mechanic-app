@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Onboarding from "react-native-onboarding-swiper";
+import tw from "twrnc";
 
 
 const Done = ({ ...props }) => (
@@ -20,53 +21,53 @@ export default function OnBoarding({ navigation }) {
       onSkip={() => navigation.navigate("Login")}
       pages={[
         {
-          backgroundColor: "rgb(247, 228, 158)",
+          backgroundColor: "#fff",
           image: (
             <Image
-              source={require("../assets/images/plum.png")}
-              style={{ width: 230, height: 230 }}
+              source={require("../assets/images/Sonny1.png")}
+              style={{ width: 260, height: 270 }}
             />
           ),
-          title: "Need to fix your broken pipe?",
-          subtitle: "Craftman has got you covered",
-        },
-        {
-          backgroundColor: "rgb(175, 223, 255)",
-          image: (
-            <Image
-              source={require("../assets/images/2.png")}
-              style={{ width: 230, height: 230 }}
-            />
-          ),
-          title: "Is your car broken?",
-          subtitle: "Craftman has got you covered too",
+          title: "Car tyre services available",
+          subtitle: "",
         },
         {
           backgroundColor: "#fff",
           image: (
             <Image
-              source={require("../assets/images/carpenter.png")}
-              style={{ width: 230, height: 230 }}
+              source={require("../assets/images/Sonny2.png")}
+              style={{ width: 250, height: 250 }}
             />
           ),
-          title: "Is your house broken?",
-          subtitle: "Craftman has got you covered too",
+          title: "We offer general car diagnosis services too",
+          subtitle: "",
         },
         {
-          backgroundColor: "rgb(185, 244, 176)",
+          backgroundColor: "#fff",
           image: (
             <Image
-              source={require("../assets/images/5.png")}
+              source={require("../assets/images/Sonny5.png")}
+              style={{ width: 320, height: 250 }}
+            />
+          ),
+          title: "Towing services available",
+          subtitle: "",
+        },
+        {
+          backgroundColor: "#fff",
+          image: (
+            <Image
+              source={require("../assets/images/Sonny4.png")}
               style={{
-                width: 155,
-                height: 202,
-                marginHorizontal: 10,
-                marginVertical: 10,
+                width: 350,
+                height: 265,
+                marginHorizontal: 8,
+                marginVertical: 8,
               }}
             />
           ),
           title: "Excellent results you can trust!",
-          subtitle: "Don't worry, we'll take care of it",
+          subtitle: "",
         },
       ]}
     />
@@ -75,7 +76,6 @@ export default function OnBoarding({ navigation }) {
 
 const styles = StyleSheet.create({
   Done: {
-    // backgroundColor: "#000000",
     color: "#ffffff",
     marginRight: 20,
   }
