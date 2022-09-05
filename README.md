@@ -14,3 +14,5 @@ A react native app for Craftmen
 ![WhatsApp Image 2022-07-15 at 12 36 22 AM](https://user-images.githubusercontent.com/80902426/179123775-16027d6a-383b-4118-9859-4e8fa296cee5.jpeg)
 # Login Screen with Google Authentication
 ![Screenshot 2022-07-15 003416](https://user-images.githubusercontent.com/80902426/179123830-6fe4ee44-58fb-4114-9251-b3af94913d02.png)
+# Sign Out Screen 
+![photo_2022-07-21_00-36-51](https://user-images.githubusercontent.com/80902426/180105494-e2004046-c442-485c-a447-4a7cd0260dbd.jpg)
