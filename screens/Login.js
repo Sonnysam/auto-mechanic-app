@@ -94,18 +94,18 @@ export default function Login() {
           secureTextEntry={true}
           onChangeText={(text) => setPassword(text)}
         />
-        <TouchableOpacity onPress={handleSignUp}>
-          <Text style={styles.btn}>SignUp</Text>
+        <TouchableOpacity onPress={handleSignIn}>
+          <Text style={styles.btn}>Sign In</Text>
         </TouchableOpacity>
         <View style={styles.account}>
-          <Text style={[styles.accountText, tw`bg-blue-300`]}>
-            Already have an account?{" "}
+          <Text style={styles.accountText}>
+            Don't have an account?{" "}
               <Text
                 style={styles.accountTextBold}
-                onPress={handleSignIn}
+                onPress={handleSignUp}
                 // onPress={() => navigation.navigate("Home")}
               >
-                Sign In
+                Sign Up
               </Text>    
           </Text>
         </View>
